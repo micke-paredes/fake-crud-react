@@ -17,15 +17,17 @@ function ListNames() {
 
     const addPerson = (e) => {
         e.preventDefault()
-        if (isEmptyField(name) && isEmptyField(phone)) {
-            const person = {
-                personId: uniqid(),
-                personName: name,
-                personPhone: phone
+        if (isEmptyField(name) === true) {
+            if (isEmptyField(phone) === true) {
+                const person = {
+                    personId: uniqid(),
+                    personName: name,
+                    personPhone: phone
+                }
+                setListNames([...listNames, person])
+                setName('')
+                setPhone('')
             }
-            setListNames([...listNames, person])
-            setName('')
-            setPhone('')
         }
     }
 
